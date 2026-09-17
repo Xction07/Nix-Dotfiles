@@ -1,0 +1,29 @@
+[opener]
+edit = [
+    { run = 'nvim "$@"', block = true, desc = "Neovim" }
+]
+
+image = [
+    { run = 'imv "$@"', desc = "imv", orphan = true },
+    { run = 'gwenview "$@"', desc = "Gwenview", orphan = true },
+]
+
+video = [
+    { run = 'mpv "$@"', desc = "mpv", orphan = true },
+    { run = 'vlc "$@"', desc = "vlc", orphan = true },
+]
+
+pdf = [
+    { run = 'zathura "$@"', desc = "Zathura", orphan = true },
+    { run = 'librewolf "$@"', desc = "Browser", orphan = true },
+]
+
+[open]
+rules = [
+    { mime = "image/*", use = "image" },
+    { mime = "video/*", use = "video" },
+    { mime = "application/pdf", use = "pdf" },
+
+    # everything else → Neovim
+    { mime = "*/*", use = "edit" }
+]

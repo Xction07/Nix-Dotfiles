@@ -19,8 +19,13 @@
   services.timesyncd.enable = true;
   services.upower.enable = true;
   # Polkit GNOME authentication agent
+  
+  # Tailscale
+  services.tailscale.enable = true;
+  
   environment.systemPackages = with pkgs; [
     polkit_gnome
+    tailscale
   ];
 }
 

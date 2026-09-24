@@ -20,12 +20,11 @@
   services.upower.enable = true;
   # Polkit GNOME authentication agent
   
-  # Tailscale
-  services.tailscale.enable = true;
+  #Flatpak Enable
+  services.flatpak.enable = true;
   
   environment.systemPackages = with pkgs; [
     polkit_gnome
-    tailscale
   ];
 }
 

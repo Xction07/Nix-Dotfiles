@@ -16,5 +16,7 @@
 
   programs.virt-manager.enable = true;
 
+  virtualisation.docker.enable = true;
+
   users.groups.libvirtd.members = ["xction"];
 }

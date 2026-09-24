@@ -14,6 +14,7 @@
       "networkmanager"
       "dialout"
       "uucp"
+      "docker"
     ];
   };
 }

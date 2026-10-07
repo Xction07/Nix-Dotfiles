@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -23,7 +23,6 @@
     ../../modules/nix-id.nix
     ../../modules/windows.nix
     ../../modules/appimage.nix
-    #../../modules/noctalia.nix
   ];
 
   nix.settings.experimental-features = [
@@ -31,9 +30,11 @@
     "flakes"
   ];
 
-  # Enable the Windows boot entry
-  my.windows.enable = true;
+  # Latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  # Windows boot entry
+  my.windows.enable = true;
   my.windows.partuuid = "8502AE0A-8734-44AE-9E9A-62CBE3971D5A";
 
   system.stateVersion = "26.05";

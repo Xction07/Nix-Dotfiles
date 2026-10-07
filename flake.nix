@@ -1,35 +1,36 @@
-
 {
   description = "Xction's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    # NixOS unstable → currently the 26.11 development series
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
+    # Gaming modules
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Doom Emacs
     nix-doom-emacs-unstraightened = {
-        url = "github:marienz/nix-doom-emacs-unstraightened";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Home Manager
+    # master is appropriate while 26.11 is still in development
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Nixvim
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Noctalia
     noctalia = {
       url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -37,7 +38,6 @@
     inputs@{
       self,
       nixpkgs,
-      nixpkgs-unstable,
       home-manager,
       nixvim,
       noctalia,
@@ -46,8 +46,7 @@
     }:
     let
       system = "x86_64-linux";
-
-      pkgs-unstable = import nixpkgs-unstable {
+      pkgs-unstable = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
@@ -57,16 +56,16 @@
         inherit system;
 
         specialArgs = {
-          inherit
-            inputs
-            pkgs-unstable;
+          inherit inputs pkgs-unstable;
         };
 
         modules = [
           ./hosts/nix
 
+          # Home Manager
           home-manager.nixosModules.home-manager
 
+          # Gaming
           nix-gaming.nixosModules.platformOptimizations
           nix-gaming.nixosModules.pipewireLowLatency
           nix-gaming.nixosModules.wine
@@ -76,9 +75,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = {
-              inherit
-                inputs
-                pkgs-unstable;
+              inherit inputs pkgs-unstable;
             };
 
             home-manager.backupFileExtension = "backup";

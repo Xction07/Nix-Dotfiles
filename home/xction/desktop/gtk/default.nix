@@ -6,6 +6,7 @@ let
 in
 {
   home.pointerCursor = {
+    enable = true;
     package = pkgs.bibata-cursors;
     name = cursorTheme;
     size = cursorSize;

@@ -3,6 +3,17 @@
 
   "logo": {
     "type": "auto",
+    "color": {
+      "1": "blue",
+      "2": "blue",
+      "3": "blue",
+      "4": "blue",
+      "5": "blue",
+      "6": "blue",
+      "7": "blue",
+      "8": "blue",
+      "9": "blue"
+    },
     "padding": {
       "right": 2
     }
@@ -10,43 +21,46 @@
 
   "display": {
     "separator": ": ",
-    "key": {
-      "color": "green"
+    "color": {
+      "keys": "blue",
+      "output": "white",
+      "separator": "white",
+      "title": "white"
     }
   },
 
   "modules": [
     "title",
     "separator",
-  
+
     "os",
     "host",
     "kernel",
     "uptime",
     "packages",
-  
+
     "shell",
     "display",
     "wm",
     "theme",
     "icons",
     "cursor",
-  
+
     "terminal",
     "terminalfont",
     "font",
-  
+
     "cpu",
     "gpu",
-  
+
     {
       "type": "memory"
     },
-  
+
     {
       "type": "swap"
     },
-  
+
     {
       "type": "disk",
       "folders": [
@@ -54,7 +68,7 @@
         "/home"
       ]
     },
-  
+
     {
       "type": "filesystem",
       "folders": [
@@ -63,23 +77,23 @@
       ],
       "format": "{mountpoint} ({filesystem})"
     },
-  
+
     {
       "type": "battery"
     },
-  
+
     {
       "type": "poweradapter"
     },
-  
+
     {
       "type": "localip"
     },
-  
+
     "locale",
-  
+
     "break",
-  
+
     "colors"
   ]
 }

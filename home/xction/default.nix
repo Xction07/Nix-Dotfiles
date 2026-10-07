@@ -12,7 +12,7 @@
     ./editors
     ./terminal
     ./packages.nix
-    ./session.nix
+    #./session.nix
     ./apps.nix
   ];
 

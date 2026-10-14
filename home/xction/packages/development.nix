@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
 
     # C/C++
+    clang
     gdb
-    gcc
     llvmPackages_21.clang-tools
     cmake
     gnumake
@@ -25,7 +25,7 @@
     # JavaScript / TypeScript
     nodejs
     bun
-    typescript-language-server
+    #typescript-language-server
 
     # Lua
     lua

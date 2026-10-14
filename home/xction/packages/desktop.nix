@@ -12,7 +12,7 @@
     wl-clipboard
     cliphist
 
-    mako
+    #mako
     fuzzel
 
     brightnessctl

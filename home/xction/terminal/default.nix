@@ -34,6 +34,5 @@
     enableFishIntegration = true;
     nix-direnv.enable = true;
   };
-
-  xdg.configFile."kitty".source = ./kitty;
+  xdg.configFile."kitty/kitty.conf".source = ./kitty/kitty.conf;
 }

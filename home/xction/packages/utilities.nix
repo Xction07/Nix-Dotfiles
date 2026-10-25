@@ -7,6 +7,5 @@
     wl-mirror
     obs-studio
     obsidian
-    gimp
   ];
 }

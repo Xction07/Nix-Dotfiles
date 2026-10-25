@@ -31,7 +31,7 @@
   ];
 
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   # Windows boot entry
   my.windows.enable = true;

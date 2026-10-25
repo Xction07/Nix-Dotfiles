@@ -7,7 +7,7 @@
     #spotify
     eog
     imagemagick
-    inkscape
+    #inkscape
     ffmpeg
     easyeffects
     cava

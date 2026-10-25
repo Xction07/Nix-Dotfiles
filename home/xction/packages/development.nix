@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
 
-    # C/C++
+    # C/C++ and others
     clang
     gdb
     llvmPackages_21.clang-tools
@@ -12,11 +12,17 @@
     mold
     pkgconf
     lldb
+    nasm
+    
+    # Documentation / manual pages
+    man-pages
+    man-pages-posix
+    man-db
 
     # Python
-    python313
-    python313Packages.pip
-    python313Packages.ipykernel
+    python314
+    python314Packages.pip
+    python314Packages.ipykernel
     basedpyright
 
     # Rust
@@ -25,7 +31,6 @@
     # JavaScript / TypeScript
     nodejs
     bun
-    #typescript-language-server
 
     # Lua
     lua

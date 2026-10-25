@@ -8,6 +8,5 @@
     arduino-ide
     nixd
     nil
-    emacs
   ];
 }

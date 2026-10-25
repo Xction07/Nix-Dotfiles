@@ -35,8 +35,8 @@
 
     glib
     polkit_gnome
-    gearlever
-    rustdesk
+    #gearlever
+    #rustdesk
     #flatpak
   ];
 }

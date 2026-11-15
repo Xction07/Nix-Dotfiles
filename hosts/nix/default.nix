@@ -1,3 +1,4 @@
+
 { pkgs, ... }:
 
 {
@@ -30,8 +31,23 @@
     "flakes"
   ];
 
+  # DwarFS: disable problematic tests
+  nixpkgs.overlays = [
+    (final: prev: {
+      dwarfs = prev.dwarfs.overrideAttrs (old: {
+        cmakeFlags =
+          (builtins.filter
+            (flag: flag != "-DWITH_TESTS=ON")
+            (old.cmakeFlags or []))
+          ++ [ "-DWITH_TESTS=OFF" ];
+
+        doCheck = false;
+      });
+    })
+  ];
+
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Windows boot entry
   my.windows.enable = true;
